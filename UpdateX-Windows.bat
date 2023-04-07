@@ -1,4 +1,5 @@
 @echo off
+
 echo Check for new versions of the script at https://sites.google.com/view/updatex
 echo.
 echo Hello there, this script will update your installed apps with Winget.
@@ -14,9 +15,6 @@ if /i "%proceed%"=="y" (
 
     echo Upgrading packages...
     winget upgrade --all
-
-    echo Cleaning up...
-    winget clean
 
     set /p restart=Packages have been updated. Do you want to restart your computer now? [y/n]
     if /i "%restart%"=="y" (
