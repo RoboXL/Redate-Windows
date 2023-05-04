@@ -20,16 +20,16 @@ if /i "%proceed%"=="y" (
         set "PATH=%PATH%;%CD%\winget"
     )
 
-    echo Upgrading packages...
-    winget upgrade --all
+    set /p include_unknown=Do you want to include updates for apps with unknown versions? [y/n]
 
-    set /p restart=Packages have been updated. Do you want to restart your computer now? [y/n]
-    if /i "%restart%"=="y" (
-        shutdown /r /t 0
+    if /i "%include_unknown%"=="y" (
+        echo Upgrading all packages including unknown versions...
+        winget upgrade -u --all
+    ) else (
+        echo Upgrading packages with known versions only...
+        winget upgrade --all
     )
-) else (
-    echo Update cancelled.
-)
 
-echo off
+    echo It is recommended to restart after the updates
+
 pause
