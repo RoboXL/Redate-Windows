@@ -20,11 +20,7 @@ if /i "%proceed%"=="y" (
 
     echo Upgrading packages...
     winget upgrade --all
-
-    set /p restart=Packages have been updated. Do you want to restart your computer now? [y/n]
-    if /i "%restart%"=="y" (
-        shutdown /r /t 0
-    )
+echo It is recommended that you restart your computer
 ) else (
     echo Update cancelled.
 )
