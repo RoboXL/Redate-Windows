@@ -1,6 +1,6 @@
 @echo off
 
-echo Check for new versions of the script at https://sites.google.com/view/updatex or re-run the install script
+echo Check for new versions of the script at https://sites.google.com/view/updatex or open "update updatex"
 echo.
 echo Hello there, this script will update your installed apps with Winget.
 echo.
