@@ -14,11 +14,10 @@ REM Prompt to confirm installation
 echo UpdateX-Windows installation
 echo Run this again to update UpdateX
 echo.
-echo This script will install UpdateX-Windows to the following location:
-echo  %destinationFolder%
+echo This script will Update UpdateX-Windows
 echo.
 
-set /p "choice=Do you want to continue with the installation? (Y/N): "
+set /p "choice=Do you want to continue with the Update? (Y/N): "
 if /i "%choice%" neq "Y" exit
 
 REM Download the repository zip file
