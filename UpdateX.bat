@@ -20,7 +20,9 @@ if /i "%proceed%"=="y" (
 
     echo Upgrading packages...
     winget upgrade --all
+echo .
 echo It is recommended that you restart your computer
+echo .
 ) else (
     echo Update cancelled.
 )
