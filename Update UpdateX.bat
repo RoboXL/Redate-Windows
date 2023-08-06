@@ -10,24 +10,31 @@ set "destinationFolder=%USERPROFILE%\UpdateX"
 set "destinationPath=%destinationFolder%\UpdateX.bat"
 set "shortcutPath=%APPDATA%\Microsoft\Windows\Start Menu\Programs\UpdateX.lnk"
 
-REM Prompt to confirm installation
-echo UpdateX-Windows installation
-echo Run this again to update UpdateX
-echo.
+echo ---------------------------------------
 echo This script will Update UpdateX-Windows
-echo.
+echo ---------------------------------------
 
 set /p "choice=Do you want to continue with the Update? (Y/N): "
 if /i "%choice%" neq "Y" exit
 
 REM Download the repository zip file
+echo .
+echo -----------------------------------------
 powershell.exe -Command "(New-Object System.Net.WebClient).DownloadFile('%repoUrl%', '%downloadPath%')"
+echo -----------------------------------------
+echo.
 
 REM Extract the contents of the zip file
+echo -----------------------------------------
 powershell.exe -Command "Expand-Archive -Path '%downloadPath%' -DestinationPath '%extractPath%' -Force"
+echo -----------------------------------------
+echo .
 
 REM Create the destination folder if it doesn't exist
+echo -----------------------------------------
 mkdir "%destinationFolder%" 2>nul
+echo -----------------------------------------
+echo .
 
 REM Move the script to the desired location
 move /Y "%scriptPath%" "%destinationPath%"
@@ -39,7 +46,7 @@ REM Clean up temporary files
 del "%downloadPath%" /F /Q
 rmdir "%extractPath%" /S /Q
 
-echo.
-echo UpdateX-Windows installation completed.
-echo.
+echo ----------------------------------------
+echo UpdateX-Windows update completed.
+echo ---------------------------------------
 pause
