@@ -18,23 +18,23 @@ set /p "choice=Do you want to continue with the Update? (Y/N): "
 if /i "%choice%" neq "Y" exit
 
 REM Download the repository zip file
-echo .
+echo ""
 echo -----------------------------------------
 powershell.exe -Command "(New-Object System.Net.WebClient).DownloadFile('%repoUrl%', '%downloadPath%')"
 echo -----------------------------------------
-echo.
+echo ""
 
 REM Extract the contents of the zip file
 echo -----------------------------------------
 powershell.exe -Command "Expand-Archive -Path '%downloadPath%' -DestinationPath '%extractPath%' -Force"
 echo -----------------------------------------
-echo .
+echo ""
 
 REM Create the destination folder if it doesn't exist
 echo -----------------------------------------
 mkdir "%destinationFolder%" 2>nul
 echo -----------------------------------------
-echo .
+echo ""
 
 REM Move the script to the desired location
 move /Y "%scriptPath%" "%destinationPath%"

@@ -1,11 +1,11 @@
 @echo off
 
 echo Check for new versions of the script at https://sites.google.com/view/updatex or open "update updatex"
-echo.
+echo ""
 echo Hello there, this script will update your installed apps with Winget.
-echo.
+echo ""
 echo Some apps might not update due to having an unknown version or it updates directly from the app.
-echo.
+echo ""
 
 set /p proceed=Do you want to proceed? [y/n]
 
@@ -22,11 +22,11 @@ if /i "%proceed%"=="y" (
     echo -------------------------------
     winget upgrade --all
     echo -------------------------------
-echo .
+echo ""
 echo It is recommended that you restart your computer
-echo .
+echo ""
 ) else (
-    echo .
+    echo ""
     echo Update cancelled.
 )
 
