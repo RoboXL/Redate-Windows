@@ -46,6 +46,8 @@ REM Clean up temporary files
 del "%downloadPath%" /F /Q
 rmdir "%extractPath%" /S /Q
 
+cls
+
 echo ----------------------------------------
 echo UpdateX-Windows update completed.
 echo ---------------------------------------
