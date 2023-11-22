@@ -1,11 +1,11 @@
 @echo off
 
-echo Check for new versions of the script at https://sites.google.com/view/updatex or open "update updatex"
-echo ""
+echo Check for new versions of the script at https://sites.google.com/view/redate or open "update redate"
+echo .
 echo What's up %username%? This script will update most of your installed apps with Winget.
-echo ""
+echo .
 echo Some apps might not update due to having an unknown version or it updates directly from the app.
-echo ""
+echo .
 
 set /p proceed=Do you want to proceed? [y/n]
 
@@ -22,12 +22,12 @@ if /i "%proceed%"=="y" (
     echo -------------------------------
     winget upgrade --all
     echo -------------------------------
-echo ""
+echo .
 echo It is recommended that you restart your computer. Also %username% is a cool username
-echo ""
+echo .
 ) else (
-    echo ""
-    echo Update cancelled.
+    echo .
+    echo Updates cancelled. Hope you found this helpful
 )
 
 echo off
