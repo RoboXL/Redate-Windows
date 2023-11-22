@@ -4,7 +4,7 @@ echo Check for new versions of the script at https://sites.google.com/view/redat
 echo:
 echo What's up %username%? This script will update most of your installed apps with Winget.
 echo:
-echo Some apps might not update due to having an unknown version. NOTE: Discord is known to fail the update process because it updates itself, ignore it it's normal
+echo Some apps might not update due to having an unknown version. NOTE: Discord and it's dependencies are known to fail the update process because it updates itself, ignore it it's normal
 echo:
 
 set /p proceed=Do you want to proceed? [y/n]
