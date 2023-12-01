@@ -7,7 +7,7 @@ echo:
 echo Some apps might not update due to having an unknown version. NOTE: Discord and it's dependencies are known to fail the update process because Discord updates itself, ignore it it's normal
 echo:
 
-set /p proceed=Do you want to proceed [Type Y for yes and N for no?] [y/n]
+set /p proceed=Do you want to proceed [Type Y for yes and N for no] [y/n]
 
 if /i "%proceed%"=="y" (
 
