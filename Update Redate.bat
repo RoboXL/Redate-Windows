@@ -24,11 +24,15 @@ powershell.exe -Command "(New-Object System.Net.WebClient).DownloadFile('%repoUr
 echo -----------------------------------------
 echo:
 
+cls
+
 REM Extract the contents of the zip file
 echo -----------------------------------------
 powershell.exe -Command "Expand-Archive -Path '%downloadPath%' -DestinationPath '%extractPath%' -Force"
 echo -----------------------------------------
 echo:
+
+cls
 
 REM Create the destination folder if it doesn't exist
 echo -----------------------------------------
@@ -36,11 +40,15 @@ mkdir "%destinationFolder%" 2>nul
 echo -----------------------------------------
 echo:
 
+cls
+
 REM Move the script to the desired location
 move /Y "%scriptPath%" "%destinationPath%"
 
 REM Create a shortcut in the Start Menu folder
 powershell.exe -Command "$shell = New-Object -ComObject WScript.Shell; $shortcut = $shell.CreateShortcut('%shortcutPath%'); $shortcut.TargetPath = '%destinationPath%'; $shortcut.Save()"
+
+cls
 
 REM Clean up temporary files
 del "%downloadPath%" /F /Q
@@ -51,4 +59,17 @@ cls
 echo ----------------------------------------
 echo Redate-Windows update completed.
 echo ---------------------------------------
+echo:
+
+set /p proceed=Do you want to proceed [Type Y for yes and N for no] [y/n]
+
+if /i "%proceed%"=="y" (
+
+\Redate-Windows-main\Redate.bat
+
+echo:
+) else (
+    
+)
+
 pause
