@@ -2,9 +2,9 @@
 
 echo Check for new versions of the script at https://sites.google.com/view/redate or open "update redate"
 echo:
-echo What's up %username%? I'm going to update your apps with Winget. Is that ok?
-echo:
 echo Some apps might not update due to having an unknown version. NOTE: Discord and it's dependencies are known to fail the update process because Discord updates itself, ignore it it's normal
+echo:
+echo What's up %username%? This script is going to update your apps with Winget. Is that ok?
 echo:
 
 set /p proceed=Do you want to proceed [Type Y for yes and N for no] [y/n]
@@ -12,10 +12,7 @@ set /p proceed=Do you want to proceed [Type Y for yes and N for no] [y/n]
 if /i "%proceed%"=="y" (
 
     where winget >nul 2>nul || (
-        echo Installing winget...
-        powershell.exe -c "Invoke-WebRequest -Uri https://github.com/microsoft/winget-cli/releases/latest/download/winget-cli-windows-x86_64.zip -OutFile winget.zip"
-        powershell.exe -c "Expand-Archive -Path .\winget.zip -DestinationPath .\winget"
-        set "PATH=%PATH%;%CD%\winget"
+        echo "Winget is not detected on this system :< Please install it from https://apps.microsoft.com/detail/9NBLGGH4NNS1 or search for app installer on the microsoft store"
     )
 
     echo Updading Apps...
