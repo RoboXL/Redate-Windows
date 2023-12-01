@@ -10,9 +10,9 @@ set "destinationFolder=%USERPROFILE%\Redate"
 set "destinationPath=%destinationFolder%\Redate.bat"
 set "shortcutPath=%APPDATA%\Microsoft\Windows\Start Menu\Programs\Redate.lnk"
 
-echo ---------------------------------------
-echo This script will Update Redate-Windows
-echo ---------------------------------------
+echo --------------------------------------------------------------------------------------------------
+echo This script will Update Redate-Windows. In order to update the update script you have to reinstall
+echo --------------------------------------------------------------------------------------------------
 
 set /p "choice=Do you want to continue with the Update? (Y/N): "
 if /i "%choice%" neq "Y" exit
