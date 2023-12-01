@@ -65,7 +65,7 @@ set /p proceed=Do you want to open Redate? [Type Y for yes and N for no] [y/n]
 
 if /i "%proceed%"=="y" (
 
-\Redate-Windows-main\Redate.bat
+\Redate\Redate.bat
 
 echo:
 ) else (
