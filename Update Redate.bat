@@ -61,7 +61,7 @@ echo Redate-Windows update completed.
 echo ---------------------------------------
 echo:
 
-set /p proceed=Do you want to proceed [Type Y for yes and N for no] [y/n]
+set /p proceed=Do you want to open Redate? [Type Y for yes and N for no] [y/n]
 
 if /i "%proceed%"=="y" (
 
