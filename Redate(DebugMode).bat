@@ -23,6 +23,8 @@ if '%errorlevel%' NEQ '0' (
     pushd "%CD%"
     CD /D "%~dp0"
 
+pause 
+
 ==========================================================================================================================
 
 :welcome
@@ -97,7 +99,7 @@ if ERRORLEVEL == 1 (
 ==========================================================================================================================
 
 :mainmenu
-cls
+echo. 
 color 0c
 title  Redate Windows
 mode 106, 20
@@ -113,16 +115,14 @@ echo: #  [4] pending         ^|                                       ^|        
 echo: #  __________________________________________________________________________________________________ #   
 echo: #                                                                                                     #
 echo: #  [5] Help                                                                                           #
-echo: #  [6] Advanced                                                                                       #
 echo: #  [0] Exit                                                                                           #
 echo: #  __________________________________________________________________________________________________ #
 echo:
 echo: Enter a menu option in the Keyboard [1,2,3,4,5,6,0]:
-choice /C:1234560 /N >nul 2>nul 
+choice /C:123450 /N >nul 2>nul 
 set _erl=%errorlevel%
 
-if %_erl%==7 exit /b
-if %_erl%==6 setlocal & call :advancedmenu & endlocal & goto :mainmenu
+if %_erl%==6 exit /b
 if %_erl%==5 start https://sites.google.com/view/redate/support/faq & goto :MainMenu
 if %_erl%==4 setlocal & call      & cls & endlocal & goto :MainMenu
 if %_erl%==3 setlocal & call    & cls & endlocal & goto :MainMenu
@@ -132,44 +132,8 @@ goto :MainMenu
 
 ==========================================================================================================================
 
-:advancedmenu
-
-cls
-color 0c
-title  Redate Windows
-mode 106, 20
-
-echo:
-echo:                                           ^|Advanced Options^|
-echo:
-echo:
-echo: #  [1] Debug mode      ^|  Press 2 to see info on debug mode      ^|  Advanced users only               #
-echo: #  __________________________________________________________________________________________________ # 
-echo: #                                                                                                     #
-echo: #  [0] Exit to main menu                                                                              #
-echo: #  __________________________________________________________________________________________________ #
-echo:
-echo: Enter a menu option in the Keyboard [1,2,3,4,5,0]:
-choice /C:120 /N >nul 2>nul 
-set __erl=%errorlevel%
-
-if %__erl%==3 exit /b 
-if %__erl%==2 setlocal & call :debuginfo & cls & endlocal & goto :advancedmenu
-if %__erl%==1 setlocal & call :debuginfo & cls & endlocal & exit
-
-
-:debuginfo 
-echo ============================================================================================================================
-echo. In case an error happens and Redate still sees it as a success run this so it does not go to the main menu after the error
-echo ============================================================================================================================
-pause
-goto :advancedmenu
-
-==========================================================================================================================
-
 :wingetupdate
 
-cls
 
 winget upgrade --all
 if ERRORLEVEL == 1 (
@@ -178,6 +142,7 @@ if ERRORLEVEL == 1 (
     echo ======================================================================================================================= 
     goto :error
 ) else (
+    pause
     goto :chocoupdate
 ) 
 
@@ -186,7 +151,7 @@ if ERRORLEVEL == 1 (
 
 :chocoupdate
 
-cls
+
 
 choco upgrade all -y
 if errorlevel == 1 (
