@@ -113,7 +113,7 @@ echo: #  [4] pending         ^|                                       ^|        
 echo: #  __________________________________________________________________________________________________ #   
 echo: #                                                                                                     #
 echo: #  [5] Help                                                                                           #
-echo: #  [6] Advanced                                                                                       #
+echo: #  [6] Extras                                                                                         #
 echo: #  [0] Exit                                                                                           #
 echo: #  __________________________________________________________________________________________________ #
 echo:
@@ -122,7 +122,7 @@ choice /C:1234560 /N >nul 2>nul
 set _erl=%errorlevel%
 
 if %_erl%==7 exit /b
-if %_erl%==6 setlocal & call :advancedmenu & endlocal & goto :mainmenu
+if %_erl%==6 setlocal & call :extra & endlocal & goto :mainmenu
 if %_erl%==5 start https://sites.google.com/view/redate/support/faq & goto :MainMenu
 if %_erl%==4 setlocal & call      & cls & endlocal & goto :MainMenu
 if %_erl%==3 setlocal & call    & cls & endlocal & goto :MainMenu
@@ -132,7 +132,7 @@ goto :MainMenu
 
 ==========================================================================================================================
 
-:advancedmenu
+:extra
 
 cls
 color 0c
@@ -140,10 +140,11 @@ title  Redate Windows
 mode 106, 20
 
 echo:
-echo:                                           ^|Advanced Options^|
+echo:                                           ^|Extras^|
 echo:
 echo:
-echo: #  [1] Debug mode      ^|  Press 2 to see info on debug mode      ^|  Advanced users only               #
+echo: #  [1] Chris Titus winutil ^| Runs the Chris Titus Winutil                                              #
+echo: #  [2] Download More ram   ^| Downloads more ram (Joke)                                                 #
 echo: #  __________________________________________________________________________________________________ # 
 echo: #                                                                                                     #
 echo: #  [0] Exit to main menu                                                                              #
@@ -154,16 +155,9 @@ choice /C:120 /N >nul 2>nul
 set __erl=%errorlevel%
 
 if %__erl%==3 exit /b 
-if %__erl%==2 setlocal & call :debuginfo & cls & endlocal & goto :advancedmenu
-if %__erl%==1 setlocal & call :debuginfo & cls & endlocal & exit
-
-
-:debuginfo 
-echo ============================================================================================================================
-echo. In case an error happens and Redate still sees it as a success run this so it does not go to the main menu after the error
-echo ============================================================================================================================
-pause
-goto :advancedmenu
+if %__erl%==2 start https://www.youtube.com/watch?v=dQw4w9WgXcQ & goto :extra
+if %__erl%==1 powershell.exe -Command "iwr -useb https://christitus.com/win | iex" & exit /b 
+goto :extra
 
 ==========================================================================================================================
 
