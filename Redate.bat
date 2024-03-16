@@ -100,22 +100,22 @@ if ERRORLEVEL == 1 (
 cls
 color 0c
 title  Redate Windows
-mode 106, 20
+mode 108, 25
 
 echo:
 echo:                                           ^|Redate Options^|
 echo:
 echo:
-echo: #  [1] Update All apps ^| Updates All of your apps using winget ^| May require Administrator priviliges #
-echo: #  [2] pending         ^|                                       ^|                                      #
-echo: #  [3] pending         ^|                                       ^|                                      #
-echo: #  [4] pending         ^|                                       ^|                                      #
-echo: #  __________________________________________________________________________________________________ #   
-echo: #                                                                                                     #
-echo: #  [5] Help                                                                                           #
-echo: #  [6] Extras                                                                                         #
-echo: #  [0] Exit                                                                                           #
-echo: #  __________________________________________________________________________________________________ #
+echo: # [1] Update All apps      ^| Updates All of your apps             ^| May require Administrator priviliges #
+echo: # [2] Install common apps  ^| It's in the name                     ^| List of common apps you can install  #
+echo: # [3] Windows Update       ^| Checks for Windows updates           ^| Recommended before updating apps     #
+echo: # [4] Uninstall Common apps^| It's in the name (again)             ^|                                      #
+echo: #  __________________________________________________________________________________________________    #   
+echo: #                                                                                                        #
+echo: # [5] Help                                                                                               #
+echo: # [6] Extras                                                                                             #
+echo: # [0] Exit                                                                                               #
+echo: #  __________________________________________________________________________________________________    #
 echo:
 echo: Enter a menu option in the Keyboard [1,2,3,4,5,6,0]:
 choice /C:1234560 /N >nul 2>nul 
@@ -125,7 +125,7 @@ if %_erl%==7 exit /b
 if %_erl%==6 setlocal & call :extra & endlocal & goto :mainmenu
 if %_erl%==5 start https://sites.google.com/view/redate/support/faq & goto :MainMenu
 if %_erl%==4 setlocal & call      & cls & endlocal & goto :MainMenu
-if %_erl%==3 setlocal & call    & cls & endlocal & goto :MainMenu
+if %_erl%==3 setlocal & control update & cls & endlocal & goto :MainMenu
 if %_erl%==2 setlocal & call    & cls & endlocal & goto :MainMenu
 if %_erl%==1 setlocal & call :wingetupdate & cls & endlocal & goto :MainMenu
 goto :MainMenu
@@ -136,28 +136,55 @@ goto :MainMenu
 
 cls
 color 0c
-title  Redate Windows
-mode 106, 20
+title  Redate Extras
+mode 108, 20
 
 echo:
 echo:                                           ^|Extras^|
 echo:
 echo:
-echo: #  [1] Chris Titus winutil ^| Runs the Chris Titus Winutil                                              #
-echo: #  [2] Download More ram   ^| Downloads more ram (Joke)                                                 #
-echo: #  __________________________________________________________________________________________________ # 
-echo: #                                                                                                     #
-echo: #  [0] Exit to main menu                                                                              #
-echo: #  __________________________________________________________________________________________________ #
+echo: #  [1] Chris Titus winutil ^| Runs the Chris Titus Winutil                                               #
+echo: #  [2] Download More ram   ^| Downloads more ram (Joke)                                                  #
+echo: #  [3] Sysinfo             ^| Opens up winver and shows system information                               #
+echo: #  __________________________________________________________________________________________________   # 
+echo: #                                                                                                       #
+echo: #  [0] Exit to main menu                                                                                #
+echo: #  __________________________________________________________________________________________________   #
 echo:
-echo: Enter a menu option in the Keyboard [1,2,3,4,5,0]:
-choice /C:120 /N >nul 2>nul 
+echo: Enter a menu option in the Keyboard [1,2,3,0]:
+choice /C:1230 /N >nul 2>nul 
 set __erl=%errorlevel%
 
-if %__erl%==3 exit /b 
+if %__erl%==4 exit /b 
+if %__erl%==3 start winver & start msinfo32 & goto :extra 
 if %__erl%==2 start https://www.youtube.com/watch?v=dQw4w9WgXcQ & goto :extra
 if %__erl%==1 powershell.exe -Command "iwr -useb https://christitus.com/win | iex" & exit /b 
 goto :extra
+
+==========================================================================================================================
+
+:Installmenu
+
+echo:
+echo:                      ^| Choose the apps you want to install with spaces (eg. 3 20 11 ) ^|
+echo:
+echo:               ^|Browsers^|
+echo:                                          
+echo: # [1] Chrome Web browser               ^|
+echo: # [2] Firefox                          ^|
+echo: # [3] Opera Browser                    ^|
+echo: # [4] Opera GX (The gaming browser)    ^|
+echo: # [5] Brave                            ^|
+echo: # [6] Tor Browser                      ^|
+echo: # [7] Chromium (Open source chrome)    ^|
+echo:
+
+
+
+
+
+
+
 
 ==========================================================================================================================
 
