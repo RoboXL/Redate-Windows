@@ -82,7 +82,7 @@ if ERRORLEVEL == 1 (
 
 :wingetinstall
 
-choco install winget
+choco install winget-cli
 if ERRORLEVEL == 1 (
     echo =========================================================================================================================================================================
     echo. Winget failed to install. Make sure you have app installer installed from the microsoft store, if you cannot find it make sure you are running Windows 10 1709 or later
@@ -126,7 +126,7 @@ if %_erl%==6 setlocal & call :extra & endlocal & goto :mainmenu
 if %_erl%==5 start https://sites.google.com/view/redate/support/faq & goto :MainMenu
 if %_erl%==4 setlocal & call      & cls & endlocal & goto :MainMenu
 if %_erl%==3 setlocal & control update & cls & endlocal & goto :MainMenu
-if %_erl%==2 setlocal & call    & cls & endlocal & goto :MainMenu
+if %_erl%==2 setlocal & call :Installmenu   & cls & endlocal & goto :MainMenu
 if %_erl%==1 setlocal & call :wingetupdate & cls & endlocal & goto :MainMenu
 goto :MainMenu
 
@@ -145,7 +145,7 @@ echo:
 echo:
 echo: #  [1] Chris Titus winutil ^| Runs the Chris Titus Winutil                                               #
 echo: #  [2] Download More ram   ^| Downloads more ram (Joke)                                                  #
-echo: #  [3] Sysinfo             ^| Opens up winver and shows system information                               #
+echo: #  [3] Sysinfo             ^| Opens winver and shows system information                                  #
 echo: #  __________________________________________________________________________________________________   # 
 echo: #                                                                                                       #
 echo: #  [0] Exit to main menu                                                                                #
@@ -168,18 +168,22 @@ goto :extra
 echo:
 echo:                      ^| Choose the apps you want to install with spaces (eg. 3 20 11 ) ^|
 echo:
-echo:               ^|Browsers^|
+echo:               ^|Browsers^|                             ^|Development^|
 echo:                                          
-echo: # [1] Chrome Web browser               ^|
-echo: # [2] Firefox                          ^|
-echo: # [3] Opera Browser                    ^|
+echo: # [1] Chrome Web browser               ^| [12] Git                      ^|
+echo: # [2] Firefox                          ^| [13] Github Desktop           ^|
+echo: # [3] Opera Browser                    ^| [14] Unity                    ^|
 echo: # [4] Opera GX (The gaming browser)    ^|
 echo: # [5] Brave                            ^|
 echo: # [6] Tor Browser                      ^|
 echo: # [7] Chromium (Open source chrome)    ^|
-echo:
-
-
+echo:-------------------------------------------
+echo:            ^|Communication^|
+echo: # [8] Discord                          ^|
+echo: # [9] Whatsapp                         ^|
+echo: # [10] Zoom                            ^|
+echo: # [11] Thunderbird                     ^|
+echo:-------------------------------------------
 
 
 
