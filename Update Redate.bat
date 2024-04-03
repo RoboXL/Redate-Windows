@@ -1,7 +1,7 @@
 @echo off
 
 REM Define variables
-set "repoUrl=https://github.com/RoboXL/Redate-Windows/archive/refs/heads/dev.zip"
+set "repoUrl=https://github.com/RoboXL/Redate-Windows/archive/refs/heads/main.zip"
 set "tempDir=%TEMP%"
 set "downloadPath=%tempDir%\Redate.zip"
 set "extractPath=%tempDir%\Redate"
@@ -65,11 +65,9 @@ set /p proceed=Do you want to open Redate? [Type Y for yes and N for no] [y/n]
 
 if /i "%proceed%"=="y" (
 
-\Redate\Redate.bat
+%destinationFolder%\Redate.bat
 
 echo:
-) else (
-    
 )
 
 pause
