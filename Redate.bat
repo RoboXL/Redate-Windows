@@ -264,40 +264,40 @@ echo:                                        [99] Exit to main menu
 echo:----------------------------------------------------------------------------------------------------------
 echo:
 set /p "M=Enter a menu option in the Keyboard: "
-IF "%M%"=="1" cls & winget.exe rm --id Google.Chrome --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="2" cls & winget.exe rm --id Mozilla.Firefox --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="3" cls & winget.exe rm --id Opera.Opera --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="4" cls & winget.exe rm --id Opera.OperaGX --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="5" cls & winget.exe rm --id Brave.Brave --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="6" cls & winget.exe rm --id TorProject.TorBrowser --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="7" cls & winget.exe rm --id Hibbiki.Chromium --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="8" cls & winget.exe rm --id Discord.Discord --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="9" cls & winget.exe rm --id 9NKSQGP7F2NH --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="10" cls & winget.exe rm --id Zoom.Zoom --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="11" cls & winget.exe rm --id Mozilla.Thunderbird --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="12" cls & winget.exe rm --id Git.Git --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="13" cls & winget.exe rm --id GitHub.GitHubDesktop --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="14" cls & winget.exe rm --id Unity.UnityHub --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="15" cls & winget.exe rm --id Microsoft.VisualStudioCode --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="16" cls & winget.exe rm --id XP89DCGQ3K6VLD --exact --accept-source-agreements --accept-package-agreements
-IF "%M%"=="17" cls & winget.exe rm --id Notepad++.Notepad++ --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="18" cls & winget.exe rm --id OBSProject.OBSStudio --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="19" cls & winget.exe rm --id angryziber.AngryIPScanner --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="20" cls & choco.exe Uninstall putty -y & goto :Installmenu
-IF "%M%"=="21" cls & winget.exe rm --id 7zip.7zip --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="22" cls & choco.exe Uninstall wireshark -y & goto :Installmenu
-IF "%M%"=="23" cls & winget.exe rm --id Google.GoogleDrive --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="24" cls & winget.exe rm --id Valve.Steam --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="25" cls & winget.exe rm --id ElectronicArts.EADesktop --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="26" cls & winget.exe rm --id EpicGames.EpicGamesLauncher --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="27" cls & winget.exe rm --id ItchIo.Itch --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="28" cls & winget.exe rm --id GOG.Galaxy --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="29" cls & winget.exe rm --id Ubisoft.Connect --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="30" cls & winget.exe rm --id SideQuestVR.SideQuest --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="31" cls & winget.exe rm --id Rufus.Rufus --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="32" cls & winget.exe rm --id GIMP.GIMP --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="33" cls & winget.exe rm --id AntibodySoftware.WizTree --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="34" cls & winget.exe rm --id agalwood.Motrix --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="1" cls & winget.exe rm --id Google.Chrome --exact & goto :Uninstallmenu
+IF "%M%"=="2" cls & winget.exe rm --id Mozilla.Firefox --exact & goto :Uninstallmenu
+IF "%M%"=="3" cls & winget.exe rm --id Opera.Opera --exact & goto :Uninstallmenu
+IF "%M%"=="4" cls & winget.exe rm --id Opera.OperaGX --exact & goto :Uninstallmenu
+IF "%M%"=="5" cls & winget.exe rm --id Brave.Brave --exact & goto :Uninstallmenu
+IF "%M%"=="6" cls & winget.exe rm --id TorProject.TorBrowser --exact & goto :Uninstallmenu
+IF "%M%"=="7" cls & winget.exe rm --id Hibbiki.Chromium --exact & goto :Uninstallmenu
+IF "%M%"=="8" cls & winget.exe rm --id Discord.Discord --exact & goto :Uninstallmenu
+IF "%M%"=="9" cls & winget.exe rm --id 9NKSQGP7F2NH --exact & goto :Uninstallmenu
+IF "%M%"=="10" cls & winget.exe rm --id Zoom.Zoom --exact & goto :Uninstallmenu
+IF "%M%"=="11" cls & winget.exe rm --id Mozilla.Thunderbird --exact & goto :Uninstallmenu
+IF "%M%"=="12" cls & winget.exe rm --id Git.Git --exact & goto :Uninstallmenu
+IF "%M%"=="13" cls & winget.exe rm --id GitHub.GitHubDesktop --exact & goto :Uninstallmenu
+IF "%M%"=="14" cls & winget.exe rm --id Unity.UnityHub --exact & goto :Uninstallmenu
+IF "%M%"=="15" cls & winget.exe rm --id Microsoft.VisualStudioCode --exact & goto :Uninstallmenu
+IF "%M%"=="16" cls & winget.exe rm --id XP89DCGQ3K6VLD --exact & goto :Uninstallmenu
+IF "%M%"=="17" cls & winget.exe rm --id Notepad++.Notepad++ --exact & goto :Uninstallmenu
+IF "%M%"=="18" cls & winget.exe rm --id OBSProject.OBSStudio --exact & goto :Uninstallmenu
+IF "%M%"=="19" cls & winget.exe rm --id angryziber.AngryIPScanner --exact & goto :Uninstallmenu
+IF "%M%"=="20" cls & choco.exe Uninstall putty -y & goto :Uninstallmenu
+IF "%M%"=="21" cls & winget.exe rm --id 7zip.7zip --exact & goto :Uninstallmenu
+IF "%M%"=="22" cls & choco.exe Uninstall wireshark -y & goto :Uninstallmenu
+IF "%M%"=="23" cls & winget.exe rm --id Google.GoogleDrive --exact & goto :Uninstallmenu
+IF "%M%"=="24" cls & winget.exe rm --id Valve.Steam --exact & goto :Uninstallmenu
+IF "%M%"=="25" cls & winget.exe rm --id ElectronicArts.EADesktop --exact & goto :Uninstallmenu
+IF "%M%"=="26" cls & winget.exe rm --id EpicGames.EpicGamesLauncher --exact & goto :Uninstallmenu
+IF "%M%"=="27" cls & winget.exe rm --id ItchIo.Itch --exact & goto :Uninstallmenu
+IF "%M%"=="28" cls & winget.exe rm --id GOG.Galaxy --exact & goto :Uninstallmenu
+IF "%M%"=="29" cls & winget.exe rm --id Ubisoft.Connect --exact & goto :Uninstallmenu
+IF "%M%"=="30" cls & winget.exe rm --id SideQuestVR.SideQuest --exact & goto :Uninstallmenu
+IF "%M%"=="31" cls & winget.exe rm --id Rufus.Rufus --exact & goto :Uninstallmenu
+IF "%M%"=="32" cls & winget.exe rm --id GIMP.GIMP --exact & goto :Uninstallmenu
+IF "%M%"=="33" cls & winget.exe rm --id AntibodySoftware.WizTree --exact & goto :Uninstallmenu
+IF "%M%"=="34" cls & winget.exe rm --id agalwood.Motrix --exact & goto :Uninstallmenu
 IF "%M%"=="99" goto :mainmenu
 
 goto :Uninstallmenu
