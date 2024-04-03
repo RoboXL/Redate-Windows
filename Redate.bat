@@ -28,6 +28,7 @@ if '%errorlevel%' NEQ '0' (
 :welcome
 cls
 color 0c
+Title Welcome to Redate
 
 echo " ______              _                     ";
 echo "(_____ \            | |        _           ";
@@ -58,7 +59,7 @@ if ERRORLEVEL == 1 (
 :installchoco
 powershell.exe -ExecutionPolicy Bypass -Command "& { Set-ExecutionPolicy Bypass -Scope Process; iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex }"
 if ERRORLEVEL == 1 (
-    echo choco failed to install. Please install it manually at https://community.chocolatey.org/
+    echo choco failed to install. Please install it manually
     start https://community.chocolatey.org/ 
     goto :error
 ) else (
@@ -124,9 +125,9 @@ set _erl=%errorlevel%
 if %_erl%==7 exit /b
 if %_erl%==6 setlocal & call :extra & endlocal & goto :mainmenu
 if %_erl%==5 start https://sites.google.com/view/redate/support/faq & goto :MainMenu
-if %_erl%==4 setlocal & call      & cls & endlocal & goto :MainMenu
+if %_erl%==4 setlocal & call :Uninstallmenu     & cls & endlocal & goto :MainMenu
 if %_erl%==3 setlocal & control update & cls & endlocal & goto :MainMenu
-if %_erl%==2 setlocal & call :Installmenu   & cls & endlocal & goto :MainMenu
+if %_erl%==2 setlocal & call :Installmenu & cls & endlocal & goto :MainMenu
 if %_erl%==1 setlocal & call :wingetupdate & cls & endlocal & goto :MainMenu
 goto :MainMenu
 
@@ -164,29 +165,142 @@ goto :extra
 ==========================================================================================================================
 
 :Installmenu
+cls
+color 0c
+mode 108, 20
+Title Redate Windows
 
 echo:
-echo:                      ^| Choose the apps you want to install with spaces (eg. 3 20 11 ) ^|
-echo:
-echo:               ^|Browsers^|                             ^|Development^|
+echo:                       ^| Choose the app you want to install (eg. 2 for Firefox ) ^|
+echo:----------------------------------------------------------------------------------------------------------
+echo:               ^|Browsers^|                      ^|Advanced tools^|                   ^|Gaming^|
 echo:                                          
-echo: # [1] Chrome Web browser               ^| [12] Git                      ^|
-echo: # [2] Firefox                          ^| [13] Github Desktop           ^|
-echo: # [3] Opera Browser                    ^| [14] Unity                    ^|
-echo: # [4] Opera GX (The gaming browser)    ^|
-echo: # [5] Brave                            ^|
-echo: # [6] Tor Browser                      ^|
-echo: # [7] Chromium (Open source chrome)    ^|
-echo:-------------------------------------------
-echo:            ^|Communication^|
-echo: # [8] Discord                          ^|
-echo: # [9] Whatsapp                         ^|
-echo: # [10] Zoom                            ^|
-echo: # [11] Thunderbird                     ^|
-echo:-------------------------------------------
+echo: # [1] Chrome Web browser               ^| [12] Git                      ^| [24] Steam                    ^|
+echo: # [2] Firefox                          ^| [13] Github Desktop           ^| [25] EA App (Was Origin)      ^|
+echo: # [3] Opera Browser                    ^| [14] Unity Hub                ^| [26] Epic Games               ^|
+echo: # [4] Opera GX (The gaming browser)    ^| [15] VS Code                  ^| [27] Itch.io                  ^|
+echo: # [5] Brave                            ^| [16] Power Toys               ^| [28] GOG                      ^|
+echo: # [6] Tor Browser                      ^| [17] Notepad ++               ^| [29] Ubisoft Connect          ^|
+echo: # [7] Chromium (Open source chrome)    ^| [18] OBS Studio               ^| [30] Sidequest                ^|
+echo:----------------------------------------------------------------------------------------------------------
+echo: #          ^|Communication^|             ^| [19] Angry IP Scanner         ^|          ^|Other^|
+echo: # [8] Discord                          ^| [20] puTTy                    ^| [31] Rufus                    ^|
+echo: # [9] Whatsapp                         ^| [21] 7-Zip (WinRAR but free)  ^| [32] GIMP                     ^|
+echo: # [10] Zoom                            ^| [22] Wireshark                ^| [33] Wiztree                  ^|
+echo: # [11] Thunderbird                     ^| [23] Google Drive             ^| [34] Motrix Download Manager  ^|
+echo:----------------------------------------------------------------------------------------------------------
+echo:                                        [99] Exit to main menu
+echo:----------------------------------------------------------------------------------------------------------
+echo:
+set /p "M=Enter a menu option in the Keyboard: "
+IF "%M%"=="1" cls & winget.exe install --id Google.Chrome --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="2" cls & winget.exe install --id Mozilla.Firefox --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="3" cls & winget.exe install --id Opera.Opera --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="4" cls & winget.exe install --id Opera.OperaGX --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="5" cls & winget.exe install --id Brave.Brave --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="6" cls & winget.exe install --id TorProject.TorBrowser --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="7" cls & winget.exe install --id Hibbiki.Chromium --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="8" cls & winget.exe install --id Discord.Discord --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="9" cls & winget.exe install --id 9NKSQGP7F2NH --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="10" cls & winget.exe install --id Zoom.Zoom --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="11" cls & winget.exe install --id Mozilla.Thunderbird --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="12" cls & winget.exe install --id Git.Git --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="13" cls & winget.exe install --id GitHub.GitHubDesktop --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="14" cls & winget.exe install --id Unity.UnityHub --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="15" cls & winget.exe install --id Microsoft.VisualStudioCode --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="16" cls & winget.exe install --id XP89DCGQ3K6VLD --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="17" cls & winget.exe install --id Notepad++.Notepad++ --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="18" cls & winget.exe install --id OBSProject.OBSStudio --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="19" cls & winget.exe install --id angryziber.AngryIPScanner --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="20" cls & choco.exe install putty -y & goto :Installmenu
+IF "%M%"=="21" cls & winget.exe install --id 7zip.7zip --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="22" cls & choco.exe install wireshark -y & goto :Installmenu
+IF "%M%"=="23" cls & winget.exe install --id Google.GoogleDrive --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="24" cls & winget.exe install --id Valve.Steam --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="25" cls & winget.exe install --id ElectronicArts.EADesktop --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="26" cls & winget.exe install --id EpicGames.EpicGamesLauncher --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="27" cls & winget.exe install --id ItchIo.Itch --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="28" cls & winget.exe install --id GOG.Galaxy --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="29" cls & winget.exe install --id Ubisoft.Connect --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="30" cls & winget.exe install --id SideQuestVR.SideQuest --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="31" cls & winget.exe install --id Rufus.Rufus --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="32" cls & winget.exe install --id GIMP.GIMP --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="33" cls & winget.exe install --id AntibodySoftware.WizTree --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="34" cls & winget.exe install --id agalwood.Motrix --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="99" goto :mainmenu
+
+goto :Installmenu
 
 
 
+==========================================================================================================================
+
+:Uninstallmenu
+cls
+color 0c
+mode 108, 20
+Title Redate Windows
+
+echo:
+echo:            ^| Choose the app you want to Uninstall (Only Choose the ones that you installed ) ^|
+echo:----------------------------------------------------------------------------------------------------------
+echo:               ^|Browsers^|                      ^|Advanced tools^|                   ^|Gaming^|
+echo:                                          
+echo: # [1] Chrome Web browser               ^| [12] Git                      ^| [24] Steam                    ^|
+echo: # [2] Firefox                          ^| [13] Github Desktop           ^| [25] EA App (Was Origin)      ^|
+echo: # [3] Opera Browser                    ^| [14] Unity Hub                ^| [26] Epic Games               ^|
+echo: # [4] Opera GX (The gaming browser)    ^| [15] VS Code                  ^| [27] Itch.io                  ^|
+echo: # [5] Brave                            ^| [16] Power Toys               ^| [28] GOG                      ^|
+echo: # [6] Tor Browser                      ^| [17] Notepad ++               ^| [29] Ubisoft Connect          ^|
+echo: # [7] Chromium (Open source chrome)    ^| [18] OBS Studio               ^| [30] Sidequest                ^|
+echo:----------------------------------------------------------------------------------------------------------
+echo: #          ^|Communication^|             ^| [19] Angry IP Scanner         ^|          ^|Other^|
+echo: # [8] Discord                          ^| [20] puTTy                    ^| [31] Rufus                    ^|
+echo: # [9] Whatsapp                         ^| [21] 7-Zip (WinRAR but free)  ^| [32] GIMP                     ^|
+echo: # [10] Zoom                            ^| [22] Wireshark                ^| [33] Wiztree                  ^|
+echo: # [11] Thunderbird                     ^| [23] Google Drive             ^| [34] Motrix Download Manager  ^|
+echo:----------------------------------------------------------------------------------------------------------
+echo:                                        [99] Exit to main menu
+echo:----------------------------------------------------------------------------------------------------------
+echo:
+set /p "M=Enter a menu option in the Keyboard: "
+IF "%M%"=="1" cls & winget.exe rm --id Google.Chrome --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="2" cls & winget.exe rm --id Mozilla.Firefox --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="3" cls & winget.exe rm --id Opera.Opera --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="4" cls & winget.exe rm --id Opera.OperaGX --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="5" cls & winget.exe rm --id Brave.Brave --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="6" cls & winget.exe rm --id TorProject.TorBrowser --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="7" cls & winget.exe rm --id Hibbiki.Chromium --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="8" cls & winget.exe rm --id Discord.Discord --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="9" cls & winget.exe rm --id 9NKSQGP7F2NH --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="10" cls & winget.exe rm --id Zoom.Zoom --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="11" cls & winget.exe rm --id Mozilla.Thunderbird --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="12" cls & winget.exe rm --id Git.Git --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="13" cls & winget.exe rm --id GitHub.GitHubDesktop --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="14" cls & winget.exe rm --id Unity.UnityHub --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="15" cls & winget.exe rm --id Microsoft.VisualStudioCode --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="16" cls & winget.exe rm --id XP89DCGQ3K6VLD --exact --accept-source-agreements --accept-package-agreements
+IF "%M%"=="17" cls & winget.exe rm --id Notepad++.Notepad++ --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="18" cls & winget.exe rm --id OBSProject.OBSStudio --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="19" cls & winget.exe rm --id angryziber.AngryIPScanner --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="20" cls & choco.exe Uninstall putty -y & goto :Installmenu
+IF "%M%"=="21" cls & winget.exe rm --id 7zip.7zip --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="22" cls & choco.exe Uninstall wireshark -y & goto :Installmenu
+IF "%M%"=="23" cls & winget.exe rm --id Google.GoogleDrive --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="24" cls & winget.exe rm --id Valve.Steam --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="25" cls & winget.exe rm --id ElectronicArts.EADesktop --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="26" cls & winget.exe rm --id EpicGames.EpicGamesLauncher --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="27" cls & winget.exe rm --id ItchIo.Itch --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="28" cls & winget.exe rm --id GOG.Galaxy --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="29" cls & winget.exe rm --id Ubisoft.Connect --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="30" cls & winget.exe rm --id SideQuestVR.SideQuest --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="31" cls & winget.exe rm --id Rufus.Rufus --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="32" cls & winget.exe rm --id GIMP.GIMP --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="33" cls & winget.exe rm --id AntibodySoftware.WizTree --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="34" cls & winget.exe rm --id agalwood.Motrix --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+IF "%M%"=="99" goto :mainmenu
+
+goto :Uninstallmenu
 
 
 

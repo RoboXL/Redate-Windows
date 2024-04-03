@@ -1,7 +1,7 @@
 @echo off
 
 REM Define variables
-set "repoUrl=https://github.com/RoboXL/Redate-Windows/archive/refs/heads/main.zip"
+set "repoUrl=https://github.com/RoboXL/Redate-Windows/archive/refs/heads/dev.zip"
 set "tempDir=%TEMP%"
 set "downloadPath=%tempDir%\Redate.zip"
 set "extractPath=%tempDir%\Redate"
