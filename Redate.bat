@@ -167,7 +167,7 @@ goto :extra
 :Installmenu
 cls
 color 0c
-mode 108, 20
+mode 108, 25
 Title Redate Windows
 
 echo:
@@ -238,7 +238,7 @@ goto :Installmenu
 :Uninstallmenu
 cls
 color 0c
-mode 108, 20
+mode 108, 25
 Title Redate Windows
 
 echo:
