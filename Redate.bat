@@ -37,7 +37,7 @@ echo "(_____ (  / _  ) / || | / _  ||  _)  / _  )";
 echo "      | |( (/ / ( (_| |( ( | || |__ ( (/ / ";
 echo "      |_| \____) \____| \_||_| \___) \____)";
 echo "                                           ";
-echo Quick tool to Install and update common apps 
+echo Quick tool to install and update common apps 
 echo Website: https://sites.google.com/view/redate
 echo Contact: https://sites.google.com/view/redate/support/contact-me
 pause
@@ -46,7 +46,7 @@ pause
 ==========================================================================================================================
 WHERE choco >nul 2>nul
 if ERRORLEVEL == 1 (
-    echo Choco not installed, Installing now... && goto :installchoco
+    echo Choco not installed, installing now... && goto :installchoco
 ) else (
     echo ================================
     echo. Choco installed, proceeding...
@@ -107,10 +107,10 @@ echo:
 echo:                                           ^|Redate Options^|
 echo:
 echo:
-echo: # [1] Update All apps      ^| Updates All of your apps             ^| May require Administrator priviliges #
+echo: # [1] Update all apps      ^| Updates all of your apps             ^| May require Administrator priviliges #
 echo: # [2] Install common apps  ^| It's in the name                     ^| List of common apps you can install  #
 echo: # [3] Windows Update       ^| Checks for Windows updates           ^| Recommended before updating apps     #
-echo: # [4] Uninstall Common apps^| It's in the name (again)             ^|                                      #
+echo: # [4] Uninstall common apps^| It's in the name (again)             ^|                                      #
 echo: #  __________________________________________________________________________________________________    #   
 echo: #                                                                                                        #
 echo: # [5] Help                                                                                               #
@@ -118,7 +118,7 @@ echo: # [6] Extras                                                              
 echo: # [0] Exit                                                                                               #
 echo: #  __________________________________________________________________________________________________    #
 echo:
-echo: Enter a menu option in the Keyboard [1,2,3,4,5,6,0]:
+echo: Enter a menu option on the keyboard and press enter [1,2,3,4,5,6,0]:
 choice /C:1234560 /N >nul 2>nul 
 set _erl=%errorlevel%
 
@@ -144,15 +144,15 @@ echo:
 echo:                                           ^|Extras^|
 echo:
 echo:
-echo: #  [1] Chris Titus winutil ^| Runs the Chris Titus Winutil                                               #
-echo: #  [2] Download More ram   ^| Downloads more ram (Joke)                                                  #
+echo: #  [1] Chris Titus WinUtil ^| Runs the Chris Titus WinUtil                                               #
+echo: #  [2] Download more ram   ^| Downloads more ram                                                         #
 echo: #  [3] Sysinfo             ^| Opens winver and shows system information                                  #
 echo: #  __________________________________________________________________________________________________   # 
 echo: #                                                                                                       #
 echo: #  [0] Exit to main menu                                                                                #
 echo: #  __________________________________________________________________________________________________   #
 echo:
-echo: Enter a menu option in the Keyboard [1,2,3,0]:
+echo: Enter a menu option on the keyboard and press enter [1,2,3,0]:
 choice /C:1230 /N >nul 2>nul 
 set __erl=%errorlevel%
 
@@ -192,7 +192,7 @@ echo:---------------------------------------------------------------------------
 echo:                                        [99] Exit to main menu
 echo:----------------------------------------------------------------------------------------------------------
 echo:
-set /p "M=Enter a menu option in the Keyboard: "
+set /p "M=Enter a menu option on the keyboard and press enter: "
 IF "%M%"=="1" cls & winget.exe install --id Google.Chrome --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
 IF "%M%"=="2" cls & winget.exe install --id Mozilla.Firefox --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
 IF "%M%"=="3" cls & winget.exe install --id Opera.Opera --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
@@ -242,17 +242,17 @@ mode 108, 25
 Title Redate Windows
 
 echo:
-echo:            ^| Choose the app you want to Uninstall (Only Choose the ones that you installed ) ^|
+echo:            ^| Choose the app you want to uninstall (Only choose the ones that you installed ) ^|
 echo:----------------------------------------------------------------------------------------------------------
 echo:               ^|Browsers^|                      ^|Advanced tools^|                   ^|Gaming^|
 echo:                                          
-echo: # [1] Chrome Web browser               ^| [12] Git                      ^| [24] Steam                    ^|
-echo: # [2] Firefox                          ^| [13] Github Desktop           ^| [25] EA App (Was Origin)      ^|
+echo: # [1] Chrome Web Browser               ^| [12] Git                      ^| [24] Steam                    ^|
+echo: # [2] Firefox                          ^| [13] Github Desktop           ^| [25] EA App (prev Origin)     ^|
 echo: # [3] Opera Browser                    ^| [14] Unity Hub                ^| [26] Epic Games               ^|
-echo: # [4] Opera GX (The gaming browser)    ^| [15] VS Code                  ^| [27] Itch.io                  ^|
+echo: # [4] Opera GX (The gaming Browser)    ^| [15] VS Code                  ^| [27] Itch.io                  ^|
 echo: # [5] Brave                            ^| [16] Power Toys               ^| [28] GOG                      ^|
 echo: # [6] Tor Browser                      ^| [17] Notepad ++               ^| [29] Ubisoft Connect          ^|
-echo: # [7] Chromium (Open source chrome)    ^| [18] OBS Studio               ^| [30] Sidequest                ^|
+echo: # [7] Chromium                         ^| [18] OBS Studio               ^| [30] Sidequest                ^|
 echo:----------------------------------------------------------------------------------------------------------
 echo: #          ^|Communication^|             ^| [19] Angry IP Scanner         ^|          ^|Other^|
 echo: # [8] Discord                          ^| [20] puTTy                    ^| [31] Rufus                    ^|
@@ -263,7 +263,7 @@ echo:---------------------------------------------------------------------------
 echo:                                        [99] Exit to main menu
 echo:----------------------------------------------------------------------------------------------------------
 echo:
-set /p "M=Enter a menu option in the Keyboard: "
+set /p "M=Enter a menu option on the keyboard and press enter: "
 IF "%M%"=="1" cls & winget.exe rm --id Google.Chrome --exact & goto :Uninstallmenu
 IF "%M%"=="2" cls & winget.exe rm --id Mozilla.Firefox --exact & goto :Uninstallmenu
 IF "%M%"=="3" cls & winget.exe rm --id Opera.Opera --exact & goto :Uninstallmenu
@@ -312,9 +312,9 @@ cls
 
 winget upgrade --all
 if ERRORLEVEL == 1 (
-    echo =======================================================================================================================
-    echo. Oh no! Winget failed to update all apps :( You can check the error and troubleshoot it yourself or you can contact me
-    echo ======================================================================================================================= 
+    echo ============================================
+    echo. Oh no! Winget failed to update all apps :(  
+    echo ============================================
     goto :error
 ) else (
     goto :chocoupdate
@@ -329,9 +329,9 @@ cls
 
 choco upgrade all -y
 if errorlevel == 1 (
-    echo ======================================================================================================================
-    echo. Oh no! Choco failed to update all apps :( You can check the error and troubleshoot it yourself or you can contact me
-    echo ======================================================================================================================
+    echo ===========================================
+    echo. Oh no! Choco failed to update all apps :( 
+    echo ===========================================
     goto :error
 ) else (
     goto :mainmenu
