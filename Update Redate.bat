@@ -11,10 +11,10 @@ set "destinationPath=%destinationFolder%\Redate.bat"
 set "shortcutPath=%APPDATA%\Microsoft\Windows\Start Menu\Programs\Redate.lnk"
 
 echo --------------------------------------------------------------------------------------------------
-echo This script will Update Redate-Windows. In order to update the update script you have to reinstall
+echo This script will update Redate-Windows. In order to update the update script you have to reinstall
 echo --------------------------------------------------------------------------------------------------
 
-set /p "choice=Do you want to continue with the Update? (Y/N): "
+set /p "choice=Do you want to continue with the update? (Y/N): "
 if /i "%choice%" neq "Y" exit
 
 REM Download the repository zip file

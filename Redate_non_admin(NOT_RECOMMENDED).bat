@@ -1,9 +1,6 @@
-@setlocal DisableDelayedExpansion
-@echo off
-
 :welcome
 cls
-color cf
+color 0c
 Title Welcome to Redate
 
 echo " ______              _                     ";
@@ -13,8 +10,8 @@ echo "(_____ (  / _  ) / || | / _  ||  _)  / _  )";
 echo "      | |( (/ / ( (_| |( ( | || |__ ( (/ / ";
 echo "      |_| \____) \____| \_||_| \___) \____)";
 echo "                                           ";
-echo Quick tool to Install and update common apps 
 echo RUNNING WITHOUT ADMINISTRATOR PRIVILIGES (THIS MAY LEAD TO ISSUES)
+echo Quick tool to install and update common apps 
 echo Website: https://sites.google.com/view/redate
 echo Contact: https://sites.google.com/view/redate/support/contact-me
 pause
@@ -23,7 +20,7 @@ pause
 ==========================================================================================================================
 WHERE choco >nul 2>nul
 if ERRORLEVEL == 1 (
-    echo Choco not installed, Installing now... && goto :installchoco
+    echo Choco not installed, installing now... && goto :installchoco
 ) else (
     echo ================================
     echo. Choco installed, proceeding...
@@ -84,10 +81,10 @@ echo:
 echo:                                           ^|Redate Options^|
 echo:
 echo:
-echo: # [1] Update All apps      ^| Updates All of your apps             ^| May require Administrator priviliges #
+echo: # [1] Update all apps      ^| Updates all of your apps             ^| May require Administrator priviliges #
 echo: # [2] Install common apps  ^| It's in the name                     ^| List of common apps you can install  #
-echo: # [3] Windows Update       ^| Opens Windows Update                 ^| Recommended before updating apps     #
-echo: # [4] Uninstall Common apps^| It's in the name (again)             ^|                                      #
+echo: # [3] Windows Update       ^| Checks for Windows updates           ^| Recommended before updating apps     #
+echo: # [4] Uninstall common apps^| It's in the name (again)             ^|                                      #
 echo: #  __________________________________________________________________________________________________    #   
 echo: #                                                                                                        #
 echo: # [5] Help                                                                                               #
@@ -95,7 +92,7 @@ echo: # [6] Extras                                                              
 echo: # [0] Exit                                                                                               #
 echo: #  __________________________________________________________________________________________________    #
 echo:
-echo: Enter a menu option in the Keyboard [1,2,3,4,5,6,0]:
+echo: Enter a menu option on the keyboard and press enter [1,2,3,4,5,6,0]:
 choice /C:1234560 /N >nul 2>nul 
 set _erl=%errorlevel%
 
@@ -121,15 +118,15 @@ echo:
 echo:                                           ^|Extras^|
 echo:
 echo:
-echo: #  [1] Chris Titus winutil ^| Runs the Chris Titus Winutil                                               #
-echo: #  [2] Download More ram   ^| Downloads more ram (Joke)                                                  #
+echo: #  [1] Chris Titus WinUtil ^| Runs the Chris Titus WinUtil                                               #
+echo: #  [2] Download more ram   ^| Downloads more ram                                                         #
 echo: #  [3] Sysinfo             ^| Opens winver and shows system information                                  #
 echo: #  __________________________________________________________________________________________________   # 
 echo: #                                                                                                       #
 echo: #  [0] Exit to main menu                                                                                #
 echo: #  __________________________________________________________________________________________________   #
 echo:
-echo: Enter a menu option in the Keyboard [1,2,3,0]:
+echo: Enter a menu option on the keyboard and press enter [1,2,3,0]:
 choice /C:1230 /N >nul 2>nul 
 set __erl=%errorlevel%
 
@@ -144,7 +141,7 @@ goto :extra
 :Installmenu
 cls
 color 0c
-mode 108, 20
+mode 108, 25
 Title Redate Windows
 
 echo:
@@ -169,7 +166,7 @@ echo:---------------------------------------------------------------------------
 echo:                                        [99] Exit to main menu
 echo:----------------------------------------------------------------------------------------------------------
 echo:
-set /p "M=Enter a menu option in the Keyboard: "
+set /p "M=Enter a menu option on the keyboard and press enter: "
 IF "%M%"=="1" cls & winget.exe install --id Google.Chrome --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
 IF "%M%"=="2" cls & winget.exe install --id Mozilla.Firefox --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
 IF "%M%"=="3" cls & winget.exe install --id Opera.Opera --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
@@ -215,21 +212,21 @@ goto :Installmenu
 :Uninstallmenu
 cls
 color 0c
-mode 108, 20
+mode 108, 25
 Title Redate Windows
 
 echo:
-echo:            ^| Choose the app you want to Uninstall (Only Choose the ones that you installed ) ^|
+echo:            ^| Choose the app you want to uninstall (Only choose the ones that you installed ) ^|
 echo:----------------------------------------------------------------------------------------------------------
 echo:               ^|Browsers^|                      ^|Advanced tools^|                   ^|Gaming^|
 echo:                                          
-echo: # [1] Chrome Web browser               ^| [12] Git                      ^| [24] Steam                    ^|
-echo: # [2] Firefox                          ^| [13] Github Desktop           ^| [25] EA App (Was Origin)      ^|
+echo: # [1] Chrome Web Browser               ^| [12] Git                      ^| [24] Steam                    ^|
+echo: # [2] Firefox                          ^| [13] Github Desktop           ^| [25] EA App (prev Origin)     ^|
 echo: # [3] Opera Browser                    ^| [14] Unity Hub                ^| [26] Epic Games               ^|
-echo: # [4] Opera GX (The gaming browser)    ^| [15] VS Code                  ^| [27] Itch.io                  ^|
+echo: # [4] Opera GX (The gaming Browser)    ^| [15] VS Code                  ^| [27] Itch.io                  ^|
 echo: # [5] Brave                            ^| [16] Power Toys               ^| [28] GOG                      ^|
 echo: # [6] Tor Browser                      ^| [17] Notepad ++               ^| [29] Ubisoft Connect          ^|
-echo: # [7] Chromium (Open source chrome)    ^| [18] OBS Studio               ^| [30] Sidequest                ^|
+echo: # [7] Chromium                         ^| [18] OBS Studio               ^| [30] Sidequest                ^|
 echo:----------------------------------------------------------------------------------------------------------
 echo: #          ^|Communication^|             ^| [19] Angry IP Scanner         ^|          ^|Other^|
 echo: # [8] Discord                          ^| [20] puTTy                    ^| [31] Rufus                    ^|
@@ -240,41 +237,41 @@ echo:---------------------------------------------------------------------------
 echo:                                        [99] Exit to main menu
 echo:----------------------------------------------------------------------------------------------------------
 echo:
-set /p "M=Enter a menu option in the Keyboard: "
-IF "%M%"=="1" cls & winget.exe rm --id Google.Chrome --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="2" cls & winget.exe rm --id Mozilla.Firefox --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="3" cls & winget.exe rm --id Opera.Opera --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="4" cls & winget.exe rm --id Opera.OperaGX --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="5" cls & winget.exe rm --id Brave.Brave --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="6" cls & winget.exe rm --id TorProject.TorBrowser --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="7" cls & winget.exe rm --id Hibbiki.Chromium --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="8" cls & winget.exe rm --id Discord.Discord --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="9" cls & winget.exe rm --id 9NKSQGP7F2NH --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="10" cls & winget.exe rm --id Zoom.Zoom --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="11" cls & winget.exe rm --id Mozilla.Thunderbird --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="12" cls & winget.exe rm --id Git.Git --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="13" cls & winget.exe rm --id GitHub.GitHubDesktop --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="14" cls & winget.exe rm --id Unity.UnityHub --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="15" cls & winget.exe rm --id Microsoft.VisualStudioCode --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="16" cls & winget.exe rm --id XP89DCGQ3K6VLD --exact --accept-source-agreements --accept-package-agreements
-IF "%M%"=="17" cls & winget.exe rm --id Notepad++.Notepad++ --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="18" cls & winget.exe rm --id OBSProject.OBSStudio --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="19" cls & winget.exe rm --id angryziber.AngryIPScanner --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="20" cls & choco.exe Uninstall putty -y & goto :Installmenu
-IF "%M%"=="21" cls & winget.exe rm --id 7zip.7zip --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="22" cls & choco.exe Uninstall wireshark -y & goto :Installmenu
-IF "%M%"=="23" cls & winget.exe rm --id Google.GoogleDrive --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="24" cls & winget.exe rm --id Valve.Steam --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="25" cls & winget.exe rm --id ElectronicArts.EADesktop --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="26" cls & winget.exe rm --id EpicGames.EpicGamesLauncher --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="27" cls & winget.exe rm --id ItchIo.Itch --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="28" cls & winget.exe rm --id GOG.Galaxy --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="29" cls & winget.exe rm --id Ubisoft.Connect --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="30" cls & winget.exe rm --id SideQuestVR.SideQuest --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="31" cls & winget.exe rm --id Rufus.Rufus --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="32" cls & winget.exe rm --id GIMP.GIMP --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="33" cls & winget.exe rm --id AntibodySoftware.WizTree --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
-IF "%M%"=="34" cls & winget.exe rm --id agalwood.Motrix --exact --accept-source-agreements --accept-package-agreements & goto :Installmenu
+set /p "M=Enter a menu option on the keyboard and press enter: "
+IF "%M%"=="1" cls & winget.exe rm --id Google.Chrome --exact & goto :Uninstallmenu
+IF "%M%"=="2" cls & winget.exe rm --id Mozilla.Firefox --exact & goto :Uninstallmenu
+IF "%M%"=="3" cls & winget.exe rm --id Opera.Opera --exact & goto :Uninstallmenu
+IF "%M%"=="4" cls & winget.exe rm --id Opera.OperaGX --exact & goto :Uninstallmenu
+IF "%M%"=="5" cls & winget.exe rm --id Brave.Brave --exact & goto :Uninstallmenu
+IF "%M%"=="6" cls & winget.exe rm --id TorProject.TorBrowser --exact & goto :Uninstallmenu
+IF "%M%"=="7" cls & winget.exe rm --id Hibbiki.Chromium --exact & goto :Uninstallmenu
+IF "%M%"=="8" cls & winget.exe rm --id Discord.Discord --exact & goto :Uninstallmenu
+IF "%M%"=="9" cls & winget.exe rm --id 9NKSQGP7F2NH --exact & goto :Uninstallmenu
+IF "%M%"=="10" cls & winget.exe rm --id Zoom.Zoom --exact & goto :Uninstallmenu
+IF "%M%"=="11" cls & winget.exe rm --id Mozilla.Thunderbird --exact & goto :Uninstallmenu
+IF "%M%"=="12" cls & winget.exe rm --id Git.Git --exact & goto :Uninstallmenu
+IF "%M%"=="13" cls & winget.exe rm --id GitHub.GitHubDesktop --exact & goto :Uninstallmenu
+IF "%M%"=="14" cls & winget.exe rm --id Unity.UnityHub --exact & goto :Uninstallmenu
+IF "%M%"=="15" cls & winget.exe rm --id Microsoft.VisualStudioCode --exact & goto :Uninstallmenu
+IF "%M%"=="16" cls & winget.exe rm --id XP89DCGQ3K6VLD --exact & goto :Uninstallmenu
+IF "%M%"=="17" cls & winget.exe rm --id Notepad++.Notepad++ --exact & goto :Uninstallmenu
+IF "%M%"=="18" cls & winget.exe rm --id OBSProject.OBSStudio --exact & goto :Uninstallmenu
+IF "%M%"=="19" cls & winget.exe rm --id angryziber.AngryIPScanner --exact & goto :Uninstallmenu
+IF "%M%"=="20" cls & choco.exe Uninstall putty -y & goto :Uninstallmenu
+IF "%M%"=="21" cls & winget.exe rm --id 7zip.7zip --exact & goto :Uninstallmenu
+IF "%M%"=="22" cls & choco.exe Uninstall wireshark -y & goto :Uninstallmenu
+IF "%M%"=="23" cls & winget.exe rm --id Google.GoogleDrive --exact & goto :Uninstallmenu
+IF "%M%"=="24" cls & winget.exe rm --id Valve.Steam --exact & goto :Uninstallmenu
+IF "%M%"=="25" cls & winget.exe rm --id ElectronicArts.EADesktop --exact & goto :Uninstallmenu
+IF "%M%"=="26" cls & winget.exe rm --id EpicGames.EpicGamesLauncher --exact & goto :Uninstallmenu
+IF "%M%"=="27" cls & winget.exe rm --id ItchIo.Itch --exact & goto :Uninstallmenu
+IF "%M%"=="28" cls & winget.exe rm --id GOG.Galaxy --exact & goto :Uninstallmenu
+IF "%M%"=="29" cls & winget.exe rm --id Ubisoft.Connect --exact & goto :Uninstallmenu
+IF "%M%"=="30" cls & winget.exe rm --id SideQuestVR.SideQuest --exact & goto :Uninstallmenu
+IF "%M%"=="31" cls & winget.exe rm --id Rufus.Rufus --exact & goto :Uninstallmenu
+IF "%M%"=="32" cls & winget.exe rm --id GIMP.GIMP --exact & goto :Uninstallmenu
+IF "%M%"=="33" cls & winget.exe rm --id AntibodySoftware.WizTree --exact & goto :Uninstallmenu
+IF "%M%"=="34" cls & winget.exe rm --id agalwood.Motrix --exact & goto :Uninstallmenu
 IF "%M%"=="99" goto :mainmenu
 
 goto :Uninstallmenu
@@ -289,9 +286,9 @@ cls
 
 winget upgrade --all
 if ERRORLEVEL == 1 (
-    echo =======================================================================================================================
-    echo. Oh no! Winget failed to update all apps :( You can check the error and troubleshoot it yourself or you can contact me
-    echo ======================================================================================================================= 
+    echo ============================================
+    echo. Oh no! Winget failed to update all apps :(  
+    echo ============================================
     goto :error
 ) else (
     goto :chocoupdate
@@ -306,9 +303,9 @@ cls
 
 choco upgrade all -y
 if errorlevel == 1 (
-    echo ======================================================================================================================
-    echo. Oh no! Choco failed to update all apps :( You can check the error and troubleshoot it yourself or you can contact me
-    echo ======================================================================================================================
+    echo ===========================================
+    echo. Oh no! Choco failed to update all apps :( 
+    echo ===========================================
     goto :error
 ) else (
     goto :mainmenu
